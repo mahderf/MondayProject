@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to the Book Database</title>
+
+</head>
+<body>
+<form action="#" th:action="@{/enterinformation}" th:object="${newinfo}" method="post">
+    <p>Employee Name: <input type="text" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span></p>
+    <p>Employee Email: <input type="text" th:field="*{emailaddress}"/>
+        <span th:if="${#fields.hasErrors('emailaddress')}" th:errors="*{emailaddress}">EmailAdress Error</span></p>
+    <p>Organization: <input type="text" th:field="*{organisation}"/>
+        <span th:if="${#fields.hasErrors('organisation')}" th:errors="*{organisation}">Organisation Error</span></p>
+
+    <p>Start Date: <input type="text" th:field="*{startdate}"/>
+        <span th:if="${#fields.hasErrors('startdate')}" th:errors="*{startdate}">StartDate Error</span></p>
+    <p>End Date: <input type="text" th:field="*{enddate}"/>
+        <span th:if="${#fields.hasErrors('enddate')}" th:errors="*{enddate}">End date Error</span></p>
+
+
+
+    <p><input type="submit" value="Enter" /> <input type="reset" value="Reset" /> </p>
+
+
+</form>
+
+</body>
+</html>

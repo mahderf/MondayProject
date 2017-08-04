@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Information Entered</title>
+</head>
+<body>
+
+<p th:text="'Name: '+ ${newinfo.name}" />
+<p th:text="'Employee Email: '+ ${newinfo.emailaddress}" />
+<p th:text="'Organization: '+ ${newinfo.organisation}" />
+<p th:text="'Start date: '+ ${newinfo.startdate}" />
+<p th:text="'End date: '+ ${newinfo.enddate}" />
+
+
+<p th:text="'Days worked: '+ ${dates.days}" />
+
+
+<a href="/enterinformation">Try Again</a>
+
+</body>
+</html>
