@@ -21,7 +21,6 @@ public class EmployeInfo {
     private String name;
    @NotNull
    @Email
-   @Size(min=7, max=40)
    private String emailaddress;
    @NotNull
    @Size(min=5, max=20)
