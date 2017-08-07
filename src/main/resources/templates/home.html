@@ -4,9 +4,22 @@
     <meta charset="UTF-8"/>
     <title>Welcome to Robo Resume</title>
 </head>
-<body>
-<h1 th:text="${message}"> Robo Resume</h1>
-<a href="/enterinformation">Enter Information</a>
+<style>
+    body{
+        background-color: #93B874;
+    }
+</style>
+<body bgcolor = "#E6E6FA">
+<h1 align="center" th:text="${message}"> Robo Resume</h1>
+<h align="center">Please either enter your information or click to view employees data </h>
+
+<form method="get" action="/enterinformation">
+    <button type="submit">EnterInformation</button>
+</form>
+
+<form method="get" action="/showemployeeinfo">
+    <button type="submit">Show Employee Data</button>
+</form>
 
 </body>
 </html>

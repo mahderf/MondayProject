@@ -18,17 +18,22 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/*
+ * This application takes Starting date and End date of an employee from a customer input and displays the time worked in terms of days with other informations entered from
+ * the customer.
+ * @author mahderf
+ */
+
 @Controller
 public class MainControllers
 {
 
-
     @Autowired
     EmployeRepository employeRepository;
-
+     // Intializing a date object and a date format
     Date date= new Date();
     DateFormat df=new SimpleDateFormat("MM/dd/yyyy");
-
+     //displays the welcome page
     @GetMapping("/")
     public String firstpage(Model model)
     {
@@ -36,6 +41,7 @@ public class MainControllers
         model.addAttribute("message",newmessage);
         return "home";
     }
+     //prompts user to enter required fields
     @GetMapping("/enterinformation")
     public String empinfor(Model model)
     {
@@ -43,6 +49,8 @@ public class MainControllers
         return "addinfo";
 
     }
+     // posts the input from the web and also under this method is were we calculate the time worked in Days and add it to the Model
+     // Here also the data entered is validated
     @PostMapping("/enterinformation")
     public String postinfo(@Valid @ModelAttribute("newinfo") EmployeInfo otherinfo, BindingResult bindingResult, Model newmodel) {
 
@@ -52,7 +60,8 @@ public class MainControllers
             return "addinfo";
         }
         System.out.println(otherinfo.getName());
-
+      //the date entered is parsed and calculated to get the difference between the two dates
+      //the if statement puts in the current date if the End date left blank
         try {
 
            if(otherinfo.getEnddate()!=null)
@@ -79,6 +88,14 @@ public class MainControllers
 
 
         return "resultinfo";
+    }
+     // this shows the employee data that is already entered in the database
+    @GetMapping("/showemployeeinfo")
+    public String showallbooks(Model model)
+    {
+        Iterable<EmployeInfo> employeeinfo=employeRepository.findAll();
+        model.addAttribute("dbemployee", employeeinfo);
+        return "showemployee";
     }
 
 }

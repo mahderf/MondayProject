@@ -1,5 +1,8 @@
 package weektwo.mahderf.demo.Controllers;
 
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +20,7 @@ public class EmployeInfo {
    @Size(min=4, max=20)
     private String name;
    @NotNull
+   @Email
    @Size(min=7, max=40)
    private String emailaddress;
    @NotNull
@@ -24,8 +28,10 @@ public class EmployeInfo {
    private String organisation;
    @NotNull
    @Size(min=8, max=10)
+   @DateTimeFormat(pattern="MM/dd/yyyy")
    private String startdate;
    @Size(max=10)
+   @DateTimeFormat(pattern="MM/dd/yyyy")
    private String enddate;
 
    private long days;

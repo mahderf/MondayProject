@@ -4,19 +4,35 @@
     <meta charset="UTF-8"/>
     <title>Information Entered</title>
 </head>
+<style>
+    body{
+        background-color: #93B874;
+    }
+</style>
 <body>
 
-<p th:text="'Name: '+ ${newinfo.name}" />
-<p th:text="'Employee Email: '+ ${newinfo.emailaddress}" />
-<p th:text="'Organization: '+ ${newinfo.organisation}" />
-<p th:text="'Start date: '+ ${newinfo.startdate}" />
-<p th:text="'End date: '+ ${newinfo.enddate}" />
+<p  align="center" th:text="'Name: '+ ${newinfo.name}" />
+<p  align="center" th:text="'Employee Email: '+ ${newinfo.emailaddress}" />
+<p  align="center" th:text="'Organization: '+ ${newinfo.organisation}" />
+<p  align="center" th:text="'Start date: '+ ${newinfo.startdate}" />
+<p  align="center" th:text="'End date: '+ ${newinfo.enddate}" />
 
 
-<p th:text="'Days worked: '+ ${dates.days}" />
+<p  align="center" th:text="'Days worked: '+ ${dates.days}" />
 
 
-<a href="/enterinformation">Try Again</a>
+
+<form method="get" action="/enterinformation">
+    <button type="submit">Try Again</button>
+</form>
+
+<form method="get" action="/">
+    <button type="submit">Home</button>
+</form>
+
+<form method="get" action="/showemployeeinfo">
+    <button type="submit">Show Employee Data</button>
+</form>
 
 </body>
 </html>

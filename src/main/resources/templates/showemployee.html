@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Employees in the Database</title>
+</head>
+<style>
+    body{
+        background-color: #93B874;
+    }
+</style>
+
+<table width="100%" cellspacing="2" cellpadding="0" border="0" align="center" bgcolor="#999999">
+    <tr bgcolor="#ffffff">
+        <th width="20%" height="50">Name</th>
+        <th width="20%" height="50">Email Address</th>
+        <th width="20%" height="50">Organization</th>
+        <th width="20%" height="50">SKU</th>
+        <th width="20%" height="50">Price</th>
+    </tr>
+    <tr bgcolor="#ffffff" th:each="employee:${dbemployee}">
+        <td  width="20%" height="50" th:text="${employee.name}">Book Title</td>
+        <td  width="20%" height="50" th:text="${employee.emailaddress}">Author</td>
+        <td  width="20%" height="50" th:text="${employee.organisation}">Desription</td>
+        <td  width="20%" height="50" th:text="${employee.startdate}"></td>
+        <td  width="20%" height="50" th:text="${employee.enddate}"></td>
+    </tr>
+    <form method="get" action="/">
+        <button type="submit">Home</button>
+    </form>
+
+</table>
+</html>
