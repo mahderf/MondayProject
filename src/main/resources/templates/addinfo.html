@@ -5,11 +5,7 @@
     <title>Welcome to the Book Database</title>
 
 </head>
-<style>
-    body{
-        background-color: #93B874;
-    }
-</style>
+
 <body>
 <form action="#" th:action="@{/enterinformation}" th:object="${newinfo}" method="post">
     <p align="center">Employee Name: <input type="text" th:field="*{name}"/>
@@ -29,12 +25,10 @@
     <p align="center"><input type="submit" value="Enter" /> <input type="reset" value="Reset" /> </p>
 
 </form>
-<form method="get" action="/showemployeeinfo">
-    <button type="submit">Show Employee Data</button>
-</form>
-<form method="get" action="/">
-    <button type="submit">Home</button>
-</form>
+<a href="/showemployeeinfo">Show Employee Data</a>
+<a href="/">Home</a>
+
+
 
 </body>
 </html>
